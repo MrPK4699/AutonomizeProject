@@ -13,10 +13,12 @@ app.use(cors({
     'http://localhost:3000', // Development frontend URL
     'https://autonomize-project-bfs9.vercel.app/', // Deployed frontend URL
   ],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true, // Enable if sending cookies
 }));
+// Handle preflight requests globally
+app.options('*', cors());
 
 app.use(bodyParser.json());
 app.use('/api', userRoutes);
