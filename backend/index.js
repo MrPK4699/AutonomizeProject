@@ -9,10 +9,7 @@ const app = express();
 
 // Configure CORS
 app.use(cors({
-  origin: [
-    'http://localhost:3000', // Development frontend URL
-    'https://autonomize-project-bfs9.vercel.app/', // Deployed frontend URL
-  ],
+  origin: '*',
   methods: ['GET', 'POST', 'PATCH', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true, // Enable if sending cookies

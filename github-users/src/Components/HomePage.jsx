@@ -14,8 +14,8 @@ const HomePage = () => {
 
   const fetchUser = async (username) => {
     try {
-      const response = await fetch(`https://autonomize-project.vercel.app/api/users`, {
-      // const response = await fetch(`${URI}users`, {
+      // const response = await fetch(`https://autonomize-project.vercel.app/api/users`, {
+      const response = await fetch(`${URI}users`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
