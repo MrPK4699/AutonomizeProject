@@ -180,11 +180,8 @@
   flex: 1;
 }
 
-.repo-info h4  {
-  color: #0073e6;
-}
 
-.repo-name {
+.repo-info .repo-name {
   font-size: 18px;
   font-weight: bold;
   text-decoration: none;
