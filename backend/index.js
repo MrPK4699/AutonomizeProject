@@ -9,8 +9,9 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: '*',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  origin: '*', // Allow any origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
 }));
 app.use(bodyParser.json());
 app.use('/api', userRoutes);
