@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,173 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.search-input {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.search-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* UserDetails.css */
+.user-details-container {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.user-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.user-info h2 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.no-user-message {
+  text-align: center;
+  color: #888;
+  font-size: 1.2em;
+}
+
+/* FriendsList.css */
+.friends-list-container {
+  margin: 20px;
+}
+
+.friends-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.friend-card {
+  text-align: center;
+}
+
+.friend-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+/* ReposList.css */
+.repos-list-container {
+  margin: 20px;
+}
+
+.repos-list {
+  list-style: none;
+  padding: 0;
+}
+
+.repo-item {
+  margin: 5px 0;
+}
+
+.repo-item a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.repo-item a:hover {
+  text-decoration: underline;
+}
+
+/* RepoDetail.css */
+.repo-detail-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.owner-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.owner-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+
+.owner-info h2 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.profile-link {
+  text-decoration: none;
+  color: #0073e6;
+  font-size: 1rem;
+}
+
+.repo-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.repo-name {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.repo-description {
+  font-size: 1rem;
+  color: #555;
+}
+
+.repo-stats p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.repo-link {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #28a745;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.repo-link:hover {
+  background-color: #218838;
 }

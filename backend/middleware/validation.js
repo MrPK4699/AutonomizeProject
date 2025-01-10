@@ -10,6 +10,7 @@ exports.userValidator = (req, res, next) => {
             bio: Joi.string().optional(),
             blog: Joi.string().optional(),
             location: Joi.string().optional(),
+            repos_url: Joi.string().optional(),
             public_repos: Joi.number().integer().optional(),
             public_gists: Joi.number().integer().optional(),
             followers: Joi.number().integer().optional(),
@@ -47,7 +48,3 @@ exports.updateValidator = (req, res, next) => {
 
       next();
 };
-
-
-
-

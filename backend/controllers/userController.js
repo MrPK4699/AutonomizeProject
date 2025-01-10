@@ -19,6 +19,7 @@ exports.saveUser = async (req, res) => {
       bio: data.bio,
       blog: data.blog,
       location: data.location,
+      repos_url: data.repos_url,
       public_repos: data.public_repos,
       public_gists: data.public_gists,
       followers: data.followers,
