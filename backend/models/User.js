@@ -15,7 +15,12 @@ const userSchema = new mongoose.Schema({
   isDeleted: { type: Boolean, default: false },
   created_at: Date,
   updated_at: Date,
-  friends: [{ type: String }],
+  friends: [
+    {
+      login: { type: String },
+      avatar_url: { type: String }
+    }
+  ]
 });
 
 module.exports = mongoose.model('User', userSchema);

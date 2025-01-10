@@ -47,7 +47,11 @@ exports.addFriends = async (req, res) => {
     const { data: followers } = await axios.get(`https://api.github.com/users/${username}/followers`);
     const { data: following } = await axios.get(`https://api.github.com/users/${username}/following`);
 
-    const mutuals = followers.filter(f => following.some(fol => fol.login === f.login)).map(f => f.login);
+    const mutuals = followers
+    .filter(f => following.some(fol => fol.login === f.login))
+    .map(f => ({ username: f.login, avatar_url: f.avatar_url }));
+
+    console.log(mutuals);
     user.friends = mutuals;
     await user.save();
 

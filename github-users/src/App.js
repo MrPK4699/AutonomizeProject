@@ -8,6 +8,7 @@ import './App.css'
 const App = () => {
   return (
     <div className="app">
+      <header><h1>GITHUB REPOS</h1></header>
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
