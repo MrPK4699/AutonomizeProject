@@ -7,14 +7,24 @@ const userRoutes = require('./routes/userRoutes');
 
 const app = express();
 
-// Middleware
+// Configure CORS
 app.use(cors({
-  origin: '*', // Allow any origin
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+  origin: [
+    'http://localhost:3000', // Development frontend URL
+    'https://autonomize-project-bfs9.vercel.app/', // Deployed frontend URL
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true, // Enable if sending cookies
 }));
+
 app.use(bodyParser.json());
 app.use('/api', userRoutes);
+
+// Health Route
+app.get('/api/health', (req, res) => {
+  res.json({ message: 'API is running!' });
+});
 
 // Database Connection
 mongoose
