@@ -10,7 +10,7 @@ const ReposList = ({ repos }) => {
         {repos.map((repo, index) => (
           <li key={index} className="repo-item">
             {/* Repository details */}
-            <div className="repo-details">
+            {/* <div className="repo-details"> */}
               {/* Icon (placeholder for now) */}
               <div className="repo-icon">
                 <img
@@ -35,7 +35,7 @@ const ReposList = ({ repos }) => {
                   {repo.description || "No description available."}
                 </p>
               </div>
-            </div>
+            {/* </div> */}
           </li>
         ))}
       </ul>

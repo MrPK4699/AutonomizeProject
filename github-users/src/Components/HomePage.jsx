@@ -1,20 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import SearchBar from "./SearchBar";
 import UserDetails from "./UserDetails";
 import FriendsList from "./FriendsList";
 import ReposList from "./RepoList";
+import { useAppContext } from "../Context/AppContext";
 
 const HomePage = () => {
-  const [userDetails, setUserDetails] = useState(null);
-  const [friends, setFriends] = useState([]);
-  const [repos, setRepos] = useState([]);
-  const [error, setError] = useState("");
+  // const [userDetails, setUserDetails] = useState(null);
+  // const [friends, setFriends] = useState([]);
+  // const [repos, setRepos] = useState([]);
+  // const [error, setError] = useState("");
+
+  const {  userDetails, setUserDetails, friends, setFriends, repos, setRepos, error, setError  } = useAppContext();
 
   const URI= process.env.REACT_APP_BACKEND_URI;
 
   const fetchUser = async (username) => {
     try {
-      // const response = await fetch(`https://autonomize-project.vercel.app/api/users`, {
       const response = await fetch(`${URI}users`, {
         method: "POST",
         headers: {
@@ -27,6 +29,7 @@ const HomePage = () => {
       }
       const data = await response.json();
       setUserDetails(data);
+      setFriends(data.friends);
       setError("");
 
       // Fetch repositories
@@ -53,14 +56,14 @@ const HomePage = () => {
         }
       );
       const data = await response.json();
-      setFriends(data.friends || []);
+      await setFriends(data.friends || []);
     } catch (err) {
       console.error("Failed to fetch friends:", err);
     }
   };
 
   return (
-    <div className="Homepage">
+    <div className="homepage">
       <SearchBar onSearch={fetchUser} />
       {error && <p className="error">{error}</p>}
       {userDetails && (
@@ -70,7 +73,7 @@ const HomePage = () => {
             className="fetch-friends"
             onClick={() => fetchFriends(userDetails.username)}
           >
-            Fetch Friends
+            Show Friends 
           </button>
           <FriendsList friends={friends} />
           <ReposList repos={repos} />

@@ -1,13 +1,15 @@
 import React from "react";
 
 const UserDetails = ({ user }) => {
-      if (!user) {
-            return <p className="no-user-message">No user found</p>;
-          }
-        
+  if (!user) {
+    return <p className="no-user-message">No user found or click on show friend button </p>;
+  }
+
   return (
-      <div className="user-details-container">
-      <img src={user.avatar_url} alt="User Avatar" className="user-avatar" />
+    <div className="user-details-container">
+      <div className="div-user-avatar">
+        <img src={user.avatar_url} alt="User Avatar" className="user-avatar" />
+      </div>
       <div className="user-info">
         <h2>{user.name || user.username}</h2>
         <p>{user.bio}</p>

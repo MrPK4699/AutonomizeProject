@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation,useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const RepoDetail = () => {
 
@@ -113,7 +113,7 @@ const RepoDetail = () => {
   // };
   const location = useLocation();
   const navigate = useNavigate();
-  const { repoDetails } = location.state || {}; 
+  const { repoDetails } = location.state || {};
   console.log(repoDetails)
   return (
     <div className="repo-detail-container">
@@ -153,8 +153,8 @@ const RepoDetail = () => {
           View Repository
         </a>
         <button onClick={() => navigate(-1)} className="back-button">
-        Back to Repositories
-      </button>
+          Back to Repositories
+        </button>
       </div>
     </div>
   );
