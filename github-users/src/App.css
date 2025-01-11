@@ -66,27 +66,90 @@ header h1{
 
 /* FriendsList.css */
 .friends-list-container {
-  margin: 10px auto;
-  max-width: 1000px;
+  padding: 1rem;
+  margin-top: 2rem;
 }
 
-.friends-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 10px;
+h3 {
+  margin-bottom: 1rem;
+}
+
+.friends-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  scroll-behavior: smooth;
+}
+
+.friends-slider::-webkit-scrollbar {
+  height: 8px; /* Customize scrollbar height */
+}
+
+.friends-slider::-webkit-scrollbar-thumb {
+  background: #0579ff;
+  border-radius: 4px;
+}
+
+.friends-slider::-webkit-scrollbar-thumb:hover {
+  background: #0021fb;
 }
 
 .friend-card {
+  min-width: 150px; /* Ensure consistent size */
   text-align: center;
-  background-color: #ebe8e8;
-  padding: 10px;
+  padding: 1rem;
+  background: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0; /* Prevent cards from shrinking */
 }
 
 .friend-avatar {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
 }
+
+.no-friends {
+  padding: 1rem;
+  text-align: center;
+  color: #999;
+}
+.slider-wrapper {
+  position: relative;
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #0ed7ff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.scroll-btn.left {
+  left: -20px;
+}
+
+.scroll-btn.right {
+  right: -20px;
+}
+
+.scroll-btn:hover {
+  background: #f0f0f0;
+}
+
+
+
+
 
 /* ReposList.css */
 /* .repos-list-container {
