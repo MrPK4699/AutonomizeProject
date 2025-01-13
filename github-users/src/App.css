@@ -9,6 +9,10 @@ header h1{
   width: 80%;
   margin: auto;
 }
+.repo-tick{
+  margin-left: 10px;
+  width: 20px;
+}
 
 .search-bar-container {
   display: flex;
@@ -34,36 +38,8 @@ header h1{
   cursor: pointer;
 }
 
+
 /* UserDetails.css */
-/* .user-details-container {
-  display: flex;
-  align-items: center;
-  margin: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-.div-user-avatar{
-  width: fit-content;
-}
-.user-avatar {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  margin-right: 20px;
-}
-
-.user-info h2 {
-  margin: 0;
-  font-size: 1.5em;
-}
-
-.no-user-message {
-  text-align: center;
-  color: #888;
-  font-size: 1.2em;
-} */
-
 .user-details-container {
   display: flex;
   /* flex-direction: column; */
@@ -228,31 +204,7 @@ h3 {
 }
 
 
-
-
-
 /* ReposList.css */
-/* .repos-list-container {
-  margin: 20px;
-}
-
-.repos-list {
-  list-style: none;
-  padding: 0;
-}
-
-.repo-item {
-  margin: 5px 0;
-}
-
-.repo-item a {
-  text-decoration: none;
-  color: #007bff;
-}
-
-.repo-item a:hover {
-  text-decoration: underline;
-} */
 .repos-list-container {
   padding: 20px;
   background-color: #f9f9f9;
@@ -283,10 +235,6 @@ h3 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* .repo-details{
-  display: flex;
-} */
-
 .repo-icon {
   flex-shrink: 0;
   width: 50px;
@@ -300,11 +248,6 @@ h3 {
   border-radius: 50%;
   object-fit: cover;
 }
-
-/* .repo-info {
-  flex: 1;
-} */
-
 
 .repo-info .repo-name {
   font-size: 18px;
@@ -338,7 +281,7 @@ h3 {
 /* RepoDetail.css */
 .repo-detail-container {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   gap: 20px;
   max-width: 800px;
   margin: 0 auto;
@@ -350,6 +293,7 @@ h3 {
 
 .owner-section {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 15px;
 }
@@ -365,7 +309,18 @@ h3 {
   font-size: 1.5rem;
   margin: 0;
 }
+.repo-topics{
+  display: flex;
+  flex-wrap: wrap;
+}
+.repo-topics p{
+  color: #0073e6;
+  background-color: #ccc;
+  border-radius: 8px;
+  padding:5px 10px 5px 10px;
+  margin-left: 10px;
 
+}
 .profile-link {
   text-decoration: none;
   color: #0073e6;
@@ -393,7 +348,9 @@ h3 {
   font-size: 0.9rem;
   color: #666;
 }
-
+.repo-btns{
+  padding: 0%;
+}
 .repo-link {
   display: inline-block;
   padding: 10px 15px;
@@ -407,6 +364,15 @@ h3 {
 
 .repo-link:hover {
   background-color: #218838;
+}
+
+.back-button{
+  background-color: #0073e6;
+  padding: 10px 15px;
+  color: white;
+  border-radius: 4px;
+  font-size: 1rem;
+
 }
 
 /* UserList.css */

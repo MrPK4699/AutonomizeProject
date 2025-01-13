@@ -126,17 +126,32 @@ const RepoDetail = () => {
         <div className="owner-info">
           <h2>{repoDetails.owner.login}</h2>
           <a
-            href={repoDetails.owner.html_url}
+            href={repoDetails.html_url}
             target="_blank"
             rel="noopener noreferrer"
             className="profile-link"
           >
-            View Profile
+            Source Code
           </a>
+        </div>
+        <div>
+          <h3>Categories</h3>
+          <div className="repo-topics">
+            {repoDetails.topics.map(ele=>(
+              <p>{ele}</p>
+            ))}
+          </div>
         </div>
       </div>
       <div className="repo-section">
-        <h1 className="repo-name">{repoDetails.name}</h1>
+        <h1 className="repo-name">
+          {repoDetails.name} 
+          <img
+            src="https://www.pinnacle.in/wp-content/uploads/2023/05/green-tick.png"
+            alt="User Avatar"
+            className="repo-tick"
+          />
+        </h1>
         <p className="repo-description">{repoDetails.description}</p>
         <div className="repo-stats">
           <p><strong>Language:</strong> {repoDetails.language || "N/A"}</p>
@@ -144,17 +159,21 @@ const RepoDetail = () => {
           <p><strong>Forks:</strong> {repoDetails.forks_count}</p>
           <p><strong>Open Issues:</strong> {repoDetails.open_issues_count}</p>
         </div>
-        <a
-          href={repoDetails.html_url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="repo-link"
-        >
-          View Repository
-        </a>
-        <button onClick={() => navigate(-1)} className="back-button">
-          Back to Repositories
-        </button>
+        <div>
+          <button  className="repo-btns">
+            <a
+              href={repoDetails.homepage}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="repo-link"
+            >
+              Deployment
+            </a>
+          </button>
+          <button onClick={() => navigate(-1)} className="back-button">
+            Back to Repositories
+          </button>
+        </div>
       </div>
     </div>
   );
