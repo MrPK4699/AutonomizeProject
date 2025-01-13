@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 
-const FriendsList = ({ friends }) => {
+const FriendsList = ({ friends, fetchUser }) => {
   const sliderRef = useRef(null);
 
   const scrollLeft = () => {
@@ -25,7 +25,7 @@ const FriendsList = ({ friends }) => {
         </button>
         <div ref={sliderRef} className="friends-slider">
           {friends.map((friend, index) => (
-            <div key={index} className="friend-card">
+            <div key={index} className="friend-card" onClick={()=>fetchUser(friend.username)}>
               <img
                 src={friend.avatar_url}
                 alt="Friend Avatar"

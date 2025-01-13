@@ -4,12 +4,9 @@ import UserDetails from "./UserDetails";
 import FriendsList from "./FriendsList";
 import ReposList from "./RepoList";
 import { useAppContext } from "../Context/AppContext";
+import UserList from "./UserList";
 
 const HomePage = () => {
-  // const [userDetails, setUserDetails] = useState(null);
-  // const [friends, setFriends] = useState([]);
-  // const [repos, setRepos] = useState([]);
-  // const [error, setError] = useState("");
 
   const {  userDetails, setUserDetails, friends, setFriends, repos, setRepos, error, setError  } = useAppContext();
 
@@ -62,23 +59,43 @@ const HomePage = () => {
     }
   };
 
+  const updateUser = async (username, updates) => {
+    const response = await fetch(`${URI}users/${username}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updates),
+    });
+    if (!response.ok) throw new Error("Failed to update user.");
+    const updatedUser = await response.json();
+    setUserDetails(updatedUser);
+  };
+
+  const softDeleteUser = async (username) => {
+    const response = await fetch(`${URI}users/${username}`, { method: "DELETE" });
+    if (!response.ok) throw new Error("Failed to delete user.");
+    setUserDetails(null);
+    setFriends([]);
+    setRepos([]);
+  };
+
   return (
     <div className="homepage">
       <SearchBar onSearch={fetchUser} />
       {error && <p className="error">{error}</p>}
-      {userDetails && (
+      {userDetails ? (
         <>
-          <UserDetails user={userDetails} />
+          <UserDetails user={userDetails} fetchUser={fetchUser}  onUserUpdate={updateUser} onUserDelete={softDeleteUser} />
           <button
             className="fetch-friends"
             onClick={() => fetchFriends(userDetails.username)}
           >
-            Show Friends 
+            Fetch Friends 
           </button>
-          <FriendsList friends={friends} />
+          <FriendsList friends={friends}  fetchUser={fetchUser}/>
           <ReposList repos={repos} />
         </>
-      )}
+      ) : <UserList fetchUser={fetchUser}/>}
+      
     </div>
   );
 };
